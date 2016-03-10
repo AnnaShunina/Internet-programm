@@ -1,0 +1,11 @@
+﻿@{
+    ViewBag.Title = "Первая страничка";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+<form method="post" action="/Home/About">
+<p>Введите текст:</p>
+@*<input value="@ViewBag.Text1" />*@
+<input type="text" name="t"/>
+<button type="submit">Записать</button>
+</form>
