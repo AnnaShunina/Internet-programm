@@ -1,4 +1,0 @@
-lab1/bin/*
-lab1/obj/*
-packages/*
-.vs/*
