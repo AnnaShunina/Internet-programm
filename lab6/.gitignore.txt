@@ -1,3 +1,0 @@
-lab6/bin/*
-lab6/obj/*
-packages/*
