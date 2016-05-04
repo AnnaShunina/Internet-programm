@@ -1,25 +1,37 @@
-﻿function Note()
+﻿function Note(name, content)
 {
     var self = this;
-    self.Name = ko.observable('');
-    self.Content = ko.observable('');
+    self.Name = name;
+    self.Content = content;
 }
+/*
+Note.prototype.updateTo = function (newKey, newValue) {
+    this.Key = newKey;
+    this.Value = newValue;
+};*/
 
 var AppViewModel = function () {
     var self = this;
     self.notepads = ko.observableArray();
     self.visible = ko.observable(0);
     self.message = ko.observable('');
+    self.Name = ko.observable('');
+    self.Content = ko.observable('');
     self.currentnotepad = ko.observable(new Note());
+    self.select = function (note)
+    {
+        self.currentnotepad = ko.observable(new Note(self.Name(),self.Content()));
+    }
     self.addItem = function ()
     {
-        if (self.currentnotepad().Name() != "") {
+        if (self.Name() != "") {
+            self.currentnotepad = ko.observable(new Note(self.Name(),self.Content()));
             var data = ko.toJSON(self.currentnotepad);
             $.post("/Home/Save", {note:data}, function (returnedData) {
                 // This callback is executed if the post was successful     
                 self.notepads.push(self.currentnotepad);
-                self.currentnotepad().Name = ko.observable('');
-                self.currentnotepad().Content = ko.observable('');
+                //self.currentnotepad().Name = ko.observable('');
+                //self.currentnotepad().Content = ko.observable('');
                 self.message('<strong>Well done!</strong>You successfully create');
                 self.visible(1);
             })
@@ -36,7 +48,9 @@ var AppViewModel = function () {
     }
     self.saveItem = function ()
     {
-
+        console.log(self.currentnotepad().Name());
+        //self.notepads[self.currentnotepad().Name()] = self.currentnotepad().Content();
+        // server
     }
     self.removeItem = function ()
     {
