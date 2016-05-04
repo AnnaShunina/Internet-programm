@@ -22,8 +22,10 @@ namespace lab6
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
             bundles.Add(new ScriptBundle("~/bundles/knockoutjs").Include(
-                        "~/Scripts/knockout-3.4.0.js"));
+                        "~/Scripts/knockout-3.4.0.js",
+                        "~/Scripts/JavaScript.js"));
         }
     }
 }

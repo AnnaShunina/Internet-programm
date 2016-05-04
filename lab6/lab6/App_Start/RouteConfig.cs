@@ -15,8 +15,14 @@ namespace lab6
 
             routes.MapRoute(
                 name: "Default",
+                url: "",
+                defaults: new { controller = "Home", action = "Index"}
+            );
+
+            routes.MapRoute(
+                name: "Routes",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "{controller}", action = "{action}", id = UrlParameter.Optional }
             );
         }
     }

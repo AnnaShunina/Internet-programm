@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using lab6.Models;
 
 namespace lab6.Controllers
 {
@@ -13,11 +14,11 @@ namespace lab6.Controllers
             return View();
         }
 
-        public ActionResult About()
+        [HttpPost]
+        public JsonResult Save([JsonBinder] Note note)
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            var message = string.Format("Success added: {0} : {1}", note.Name, note.Content);
+            return Json(new { message });
         }
 
         public ActionResult Contact()
