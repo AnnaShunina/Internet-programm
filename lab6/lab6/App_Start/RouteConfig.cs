@@ -21,8 +21,8 @@ namespace lab6
 
             routes.MapRoute(
                 name: "CreateNotepad",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "{controller}", action = "{action}", id = UrlParameter.Optional }
+                url: "Notepad/Create",
+                defaults: new { controller = "Notepad", action = "Create" }
             );
 
             routes.MapRoute(
@@ -32,16 +32,28 @@ namespace lab6
             );
 
             routes.MapRoute(
-                name: "IdNotepad",
-                url: "Notepad/{id}",
-                defaults: new { controller = "Notepad", action = "Index", id = UrlParameter.Optional }
-            );
-
-            routes.MapRoute(
                 name: "SaveNotepad",
                 url: "Notepad/Save",
                 defaults: new { controller = "Notepad", action = "Save", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+                name: "LoadNotepad",
+                url: "Notepad/Load",
+                defaults: new { controller = "Notepad", action = "Load"}
+            );
+
+            routes.MapRoute(
+                name: "RemoveNotepad",
+                url: "Notepad/Remove",
+                defaults: new { controller = "Notepad", action = "Remove" }
+            );
+
+            routes.MapRoute(
+                name:"NoteBlin",
+                url: "Notepad/{name}",
+                defaults: new { controller = "Notepad", action = "Select", name = "{name}" }
+                );
         }
     }
 }

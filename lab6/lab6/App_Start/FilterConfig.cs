@@ -1,6 +1,6 @@
 ﻿using System.Web;
 using System.Web.Mvc;
-
+using lab6.Models;
 namespace lab6
 {
     public class FilterConfig
@@ -8,6 +8,7 @@ namespace lab6
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+            filters.Add(new ActionLog());
         }
     }
 }

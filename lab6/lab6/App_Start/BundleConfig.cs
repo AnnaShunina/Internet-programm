@@ -25,6 +25,7 @@ namespace lab6
 
             bundles.Add(new ScriptBundle("~/bundles/knockoutjs").Include(
                         "~/Scripts/knockout-3.4.0.js",
+                        "~/Scripts/knockout.mapping-latest.js",
                         "~/Scripts/JavaScript.js"));
         }
     }

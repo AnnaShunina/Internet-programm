@@ -1,9 +1,19 @@
-﻿@{
-    ViewBag.Title = "Блокнот";
-}
+﻿<script type="text/javascript">
+    var notepadname = "";
+notepadname = '@ViewBag.notepadname';
+</script>
 <br>
 <div class="container">
-    @{ Html.RenderPartial("_Create");    }
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="input-group">
+                <input type="text" class="form-control" data-bind="value: Name" placeholder="Новый блокнот...">
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-default" data-bind="click: addItem">Создать</button>
+                </span>
+            </div>
+        </div>
+    </div>
     <br>
     <div class="btn-group" data-bind="foreach: notepads">
         <button id="notepads" class="btn btn-default" data-bind=" text: Name, attr: { name: Name }, click: selectnote"></button>
